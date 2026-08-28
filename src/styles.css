@@ -1,3 +1,93 @@
-/* You can add global styles to this file, and also import other style files */
+@import "tailwindcss";
 
-@import 'tailwindcss';
+.skill-card {
+  @apply flex flex-col items-center justify-center gap-4 rounded-xl border border-emerald-900/50 bg-emerald-950/20 p-6 text-gray-300 transition duration-300;
+}
+
+.skill-card:hover {
+  @apply -translate-y-1 border-emerald-500/50 bg-emerald-500/10 text-emerald-400 shadow-lg shadow-emerald-950/30;
+}
+
+.skill-card span {
+  @apply text-sm font-semibold;
+}
+
+.soft-skill-card {
+  @apply rounded-xl border border-emerald-900/50 bg-emerald-950/20 p-6 transition duration-300;
+}
+
+.soft-skill-card:hover {
+  @apply -translate-y-1 border-emerald-500/40 bg-emerald-500/5;
+}
+
+.soft-skill-card h4 {
+  @apply mt-4 text-lg font-semibold text-white;
+}
+
+.soft-skill-card p {
+  @apply mt-2 text-sm leading-6 text-gray-400;
+}
+
+/* =========================
+   MENÚ MOBILE
+========================= */
+
+.mobile-menu {
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transform: translateY(-10px);
+  pointer-events: none;
+
+  transition:
+    max-height 0.35s ease,
+    opacity 0.25s ease,
+    transform 0.35s ease;
+}
+
+.mobile-menu-open {
+  max-height: 300px;
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.mobile-menu-closed {
+  max-height: 0;
+  opacity: 0;
+  transform: translateY(-10px);
+  pointer-events: none;
+}
+
+.mobile-menu-item {
+  opacity: 0;
+  transform: translateX(-10px);
+
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease,
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.mobile-menu-open .mobile-menu-item {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.mobile-menu-open .mobile-menu-item:nth-child(1) {
+  transition-delay: 0.05s;
+}
+
+.mobile-menu-open .mobile-menu-item:nth-child(2) {
+  transition-delay: 0.10s;
+}
+
+.mobile-menu-open .mobile-menu-item:nth-child(3) {
+  transition-delay: 0.15s;
+}
+
+.mobile-menu-open .mobile-menu-item:nth-child(4) {
+  transition-delay: 0.20s;
+}
+
